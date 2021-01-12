@@ -27,7 +27,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var counterOutput: UILabel!
     
     @IBAction func didErrorButton() {
-        print("Something went wrong....")
+        //print("Something went wrong....")
+        logger.error("Something went wrong....")
     }
 
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Datadog
+internal fileprivate(set) var logger: Logger!
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Datadog.initialize(
+            appContext: .init(),
+            configuration: Datadog.Configuration
+            .builderUsing(
+                rumApplicationID: "APP ID HERE",
+                clientToken: "CLIENT TOKEN HERE",
+                environment: "rum-testing"
+            )
+            .trackUIKitActions(true)
+            .trackUIKitRUMViews(using: DefaultUIKitRUMViewsPredicate())
+            .track(firstPartyHosts: ["<YOUR_DOMAIN.COM>"])
+            .build()
+        )
+        logger = Logger.builder
+            .sendNetworkInfo(true)
+            .printLogsToConsole(true, usingFormat: .shortWith(prefix: "[iOS App] "))
+            .build()
+
+        Datadog.setUserInfo(id: "1234", name: "Jane Doe", email: "Jane123@somewhere.com")
+        Datadog.verbosityLevel = .debug
+        Global.rum = RUMMonitor.initialize()
+        
+        Global.rum.addAttribute(forKey: "hasPurchased", value: false)
+        
+        Global.rum.addUserAction(
+                type: .custom,
+                name: "init"
+            )
+        
         return true
     }
 
