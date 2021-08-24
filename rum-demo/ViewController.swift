@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+
     var count: Int = 0
     
     @IBAction func didTapButton() {
@@ -27,16 +28,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var counterOutput: UILabel!
     
     @IBAction func didErrorButton() {
-        print("Something went wrong....")
+        // print("Something went wrong....")
+        logger.error("Something went wrong....")
     }
 
 }
 
 class BlueViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .purple
     }
-
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,6 +43,13 @@
                                     <action selector="didErrorButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="xZu-9M-TX7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIk-oN-jVP">
+                                <rect key="frame" x="139" y="255" width="136" height="30"/>
+                                <state key="normal" title="Show Image Screen"/>
+                                <connections>
+                                    <segue destination="95S-Jc-k9q" kind="show" id="Fe6-o5-gCk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -50,11 +57,13 @@
                             <constraint firstItem="smI-ug-n4Q" firstAttribute="top" secondItem="dgY-JQ-CL9" secondAttribute="bottom" constant="20" id="6rj-RV-ehg"/>
                             <constraint firstItem="cLy-bZ-IF8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="8I4-aE-buO"/>
                             <constraint firstItem="Wl2-Y9-UdQ" firstAttribute="top" secondItem="smI-ug-n4Q" secondAttribute="bottom" constant="20" id="ABn-cM-dca"/>
+                            <constraint firstItem="dIk-oN-jVP" firstAttribute="top" secondItem="Wl2-Y9-UdQ" secondAttribute="bottom" constant="20" id="Ebk-Bm-Ayx"/>
                             <constraint firstItem="cLy-bZ-IF8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ft3-zU-0z7"/>
                             <constraint firstItem="Wl2-Y9-UdQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JnM-Yb-Oeb"/>
                             <constraint firstItem="dgY-JQ-CL9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NGQ-s2-F2Z"/>
                             <constraint firstItem="dgY-JQ-CL9" firstAttribute="top" secondItem="cLy-bZ-IF8" secondAttribute="bottom" constant="20" id="P0a-Jo-JXA"/>
                             <constraint firstItem="smI-ug-n4Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j9L-Yl-0TA"/>
+                            <constraint firstItem="dIk-oN-jVP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pj3-Dl-z8Q"/>
                         </constraints>
                     </view>
                     <connections>
@@ -64,6 +73,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="80"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="LYn-Fb-V5y">
+            <objects>
+                <viewController id="95S-Jc-k9q" customClass="ImageViewController" customModule="rum_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4DD-gq-9gt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLO-qY-7Jg">
+                                <rect key="frame" x="92.5" y="20" width="229" height="41"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="229" id="9SG-8s-PDX"/>
+                                    <constraint firstAttribute="height" constant="41" id="cs8-Xp-P5X"/>
+                                </constraints>
+                                <color key="tintColor" red="0.47058823529999999" green="0.27062672380000002" blue="0.70971673729999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Load Random Image"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapLoadRandomImage:" destination="95S-Jc-k9q" eventType="touchUpInside" id="jhp-4d-a5k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hI-jb-b6a">
+                                <rect key="frame" x="92.5" y="766" width="229" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dea-nh-TAu"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="229" id="mX9-NQ-d2U"/>
+                                </constraints>
+                                <color key="tintColor" red="0.47058823529999999" green="0.27062672380000002" blue="0.70971673729999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Dismiss"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapDismiss:" destination="95S-Jc-k9q" eventType="touchUpInside" id="q8f-6N-uzt"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9XI-0I-Sdc">
+                                <rect key="frame" x="11" y="78" width="392" height="673"/>
+                                <color key="backgroundColor" white="1" alpha="0.10062797495860927" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="3Vu-qM-sCn">
+                                <rect key="frame" x="197" y="394" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xj0-Jf-7IE"/>
+                        <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9XI-0I-Sdc" firstAttribute="top" secondItem="PLO-qY-7Jg" secondAttribute="bottom" constant="17" id="5z2-ic-jKk"/>
+                            <constraint firstItem="xj0-Jf-7IE" firstAttribute="trailing" secondItem="9XI-0I-Sdc" secondAttribute="trailing" constant="11" id="An3-ag-O0N"/>
+                            <constraint firstItem="9XI-0I-Sdc" firstAttribute="leading" secondItem="xj0-Jf-7IE" secondAttribute="leading" constant="11" id="N3X-Vh-Xje"/>
+                            <constraint firstItem="PLO-qY-7Jg" firstAttribute="centerX" secondItem="xj0-Jf-7IE" secondAttribute="centerX" id="PbJ-aU-TbP"/>
+                            <constraint firstItem="PLO-qY-7Jg" firstAttribute="top" secondItem="xj0-Jf-7IE" secondAttribute="top" constant="20" id="SIu-4V-C6b"/>
+                            <constraint firstItem="8hI-jb-b6a" firstAttribute="top" secondItem="9XI-0I-Sdc" secondAttribute="bottom" constant="15" id="ZRl-Qw-RrR"/>
+                            <constraint firstItem="3Vu-qM-sCn" firstAttribute="centerY" secondItem="xj0-Jf-7IE" secondAttribute="centerY" id="gXI-1S-MMX"/>
+                            <constraint firstItem="8hI-jb-b6a" firstAttribute="centerX" secondItem="xj0-Jf-7IE" secondAttribute="centerX" id="mCw-iP-T4c"/>
+                            <constraint firstItem="xj0-Jf-7IE" firstAttribute="bottom" secondItem="8hI-jb-b6a" secondAttribute="bottom" constant="12" id="uaH-qM-iWF"/>
+                            <constraint firstItem="3Vu-qM-sCn" firstAttribute="centerX" secondItem="xj0-Jf-7IE" secondAttribute="centerX" id="wgg-TA-suz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2TX-Ke-Rf9"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="3Vu-qM-sCn" id="4qt-0k-3Dv"/>
+                        <outlet property="imageView" destination="9XI-0I-Sdc" id="fzi-b3-GL1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ljg-AW-59S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882.60869565217399" y="79.6875"/>
         </scene>
     </scenes>
     <resources>
