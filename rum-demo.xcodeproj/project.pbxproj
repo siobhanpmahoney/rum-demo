@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,6 @@
 		D70D9EB925AD5E590050C144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70D9EB725AD5E590050C144 /* Main.storyboard */; };
 		D70D9EBB25AD5E5A0050C144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70D9EBA25AD5E5A0050C144 /* Assets.xcassets */; };
 		D70D9EBE25AD5E5A0050C144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70D9EBC25AD5E5A0050C144 /* LaunchScreen.storyboard */; };
-		D70D9EC825AD66D20050C144 /* Datadog in Frameworks */ = {isa = PBXBuildFile; productRef = D70D9EC725AD66D20050C144 /* Datadog */; };
-		D70D9EC925AD66D20050C144 /* Datadog in Embed Frameworks */ = {isa = PBXBuildFile; productRef = D70D9EC725AD66D20050C144 /* Datadog */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +23,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D70D9EC925AD66D20050C144 /* Datadog in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,7 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D70D9EC825AD66D20050C144 /* Datadog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +101,6 @@
 			);
 			name = "rum-demo";
 			packageProductDependencies = (
-				D70D9EC725AD66D20050C144 /* Datadog */,
 			);
 			productName = "rum-demo";
 			productReference = D70D9EAE25AD5E590050C144 /* rum-demo.app */;
@@ -135,7 +130,6 @@
 			);
 			mainGroup = D70D9EA525AD5E590050C144;
 			packageReferences = (
-				D70D9EC625AD66D20050C144 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */,
 			);
 			productRefGroup = D70D9EAF25AD5E590050C144 /* Products */;
 			projectDirPath = "";
@@ -367,25 +361,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D70D9EC625AD66D20050C144 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Datadog/dd-sdk-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D70D9EC725AD66D20050C144 /* Datadog */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D70D9EC625AD66D20050C144 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */;
-			productName = Datadog;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D70D9EA625AD5E590050C144 /* Project object */;
 }

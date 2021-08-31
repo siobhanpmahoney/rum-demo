@@ -1,2 +1,4 @@
 # Ignore local Xcode settings
 xcuserdata
+.DS_STORE
+**/.DS_STORE
